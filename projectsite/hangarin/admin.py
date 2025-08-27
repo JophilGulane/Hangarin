@@ -20,9 +20,9 @@ class SubTaskAdmin(admin.ModelAdmin):
     list_filter = ("status",)
     def parent_task_name (self, obj):
         try:
-            task = SubTask.objects.get(id=obj.parent_task_id)
-            return Task.title
-        except Task.DoesNotExist:
+            task = Task.objects.get(id=obj.parent_task_id)
+            return task.title
+        except task.DoesNotExist:
             return None     
 @admin.register(Category)
 class CategoryAdmin(admin.ModelAdmin):
