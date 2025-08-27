@@ -12,12 +12,20 @@ class BaseModel(models.Model):
 class Priority(BaseModel):
     name = models.CharField(max_length=150)
     
+    class Meta:
+        verbose_name = "Priority"
+        verbose_name_plural = "Priorities"
+        
     def __str__(self):
         return self.name
     
 class Category(BaseModel):
     name = models.CharField(max_length=150)
 
+    class Meta:
+        verbose_name = "Category"
+        verbose_name_plural = "Categories"
+        
     def __str__(self):
         return self.name
 
@@ -44,7 +52,7 @@ class Note(BaseModel):
     task = models.ForeignKey(Task, on_delete=models.CASCADE)
     content = models.TextField(max_length=150)
     def __str__(self):
-        return self.task
+        return self.content
     
 class SubTask(BaseModel):
     parent_task = models.ForeignKey(Task, on_delete=models.CASCADE)
