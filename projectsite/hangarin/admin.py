@@ -7,6 +7,12 @@ class TaskAdmin(admin.ModelAdmin):
     list_display = ("title", "status", "deadline", "priority", "category",)
     list_filter = ("status", "priority",)
     search_fields = ("title", "description",)
+    class SubTaskInline(admin.TabularInline):
+        model = SubTask
+        extra = 1
+        fields = ("title", "status")
+        show_change_link = True
+
 @admin.register(SubTask)
 class SubTaskAdmin(admin.ModelAdmin):
     list_display = ("title", "status", "parent_task_name",)
@@ -31,4 +37,9 @@ class NoteAdmin(admin.ModelAdmin):
     list_display = ("task", "content", "created_at",)
     list_filter = ("created_at",)
     search_fields = ("content",)
+class NoteInline(admin.StackedInline):
+    model = Note
+    extra = 1
+    fields = ("content", "created_at")
+    readonly_fields = ("created_at",)
 
