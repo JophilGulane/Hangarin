@@ -45,46 +45,46 @@
             </li>
             <li class="nav-small-cap">
               <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
-              <span class="hide-menu">UI COMPONENTS</span>
+              <span class="hide-menu">TODO APP</span>
             </li>
             <li class="sidebar-item">
-              <a class="sidebar-link" href="./ui-buttons.html" aria-expanded="false">
+              <a class="sidebar-link" href="{% url 'task-list' %}" aria-expanded="false">
                 <span>
-                  <i class="ti ti-article"></i>
+                  <i class="ti ti-checklist"></i>
                 </span>
-                <span class="hide-menu">Buttons</span>
+                <span class="hide-menu">Tasks</span>
               </a>
             </li>
             <li class="sidebar-item">
-              <a class="sidebar-link" href="./ui-alerts.html" aria-expanded="false">
+              <a class="sidebar-link" href="{% url 'note-list' %}" aria-expanded="false">
                 <span>
-                  <i class="ti ti-alert-circle"></i>
+                  <i class="ti ti-notes"></i>
                 </span>
-                <span class="hide-menu">Alerts</span>
+                <span class="hide-menu">Notes</span>
               </a>
             </li>
             <li class="sidebar-item">
-              <a class="sidebar-link" href="./ui-card.html" aria-expanded="false">
+              <a class="sidebar-link" href="{% url 'subtask-list' %}" aria-expanded="false">
                 <span>
-                  <i class="ti ti-cards"></i>
+                  <i class="ti ti-indent-decrease"></i>
                 </span>
-                <span class="hide-menu">Card</span>
+                <span class="hide-menu">Subtasks</span>
               </a>
             </li>
             <li class="sidebar-item">
-              <a class="sidebar-link" href="./ui-forms.html" aria-expanded="false">
+              <a class="sidebar-link" href="{% url 'category-list' %}" aria-expanded="false">
                 <span>
-                  <i class="ti ti-file-description"></i>
+                  <i class="ti ti-tags"></i>
                 </span>
-                <span class="hide-menu">Forms</span>
+                <span class="hide-menu">Categories</span>
               </a>
             </li>
             <li class="sidebar-item">
-              <a class="sidebar-link" href="./ui-typography.html" aria-expanded="false">
+              <a class="sidebar-link" href="{% url 'priority-list' %}" aria-expanded="false">
                 <span>
-                  <i class="ti ti-typography"></i>
+                  <i class="ti ti-flag"></i>
                 </span>
-                <span class="hide-menu">Typography</span>
+                <span class="hide-menu">Priorities</span>
               </a>
             </li>
             <li class="nav-small-cap">
@@ -105,26 +105,6 @@
                   <i class="ti ti-user-plus"></i>
                 </span>
                 <span class="hide-menu">Register</span>
-              </a>
-            </li>
-            <li class="nav-small-cap">
-              <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
-              <span class="hide-menu">EXTRA</span>
-            </li>
-            <li class="sidebar-item">
-              <a class="sidebar-link" href="./icon-tabler.html" aria-expanded="false">
-                <span>
-                  <i class="ti ti-mood-happy"></i>
-                </span>
-                <span class="hide-menu">Icons</span>
-              </a>
-            </li>
-            <li class="sidebar-item">
-              <a class="sidebar-link" href="./sample-page.html" aria-expanded="false">
-                <span>
-                  <i class="ti ti-aperture"></i>
-                </span>
-                <span class="hide-menu">Sample Page</span>
               </a>
             </li>
           </ul>
@@ -186,6 +166,7 @@
       </header>
       <!--  Header End -->
 
+      <!-- MAIN -->
       <div class="container-fluid">
         {% block content %}
         {% endblock %}

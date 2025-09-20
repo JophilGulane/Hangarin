@@ -9,11 +9,11 @@
     <div class="row align-items-center mb-4">
       <div class="col-12 col-md-6">
         <h3 class="fw-bold mb-2 mb-md-0">
-          <i class="ti ti-checklist me-2 text-primary"></i> Tasks
+          <i class="ti ti-note me-2 text-primary"></i> Notes
         </h3>
       </div>
       <div class="col-12 col-md-6 text-md-end">
-        <a href="{% url 'task-add' %}" class="btn btn-primary btn-sm px-4">
+        <a href="{% url 'note-add' %}" class="btn btn-primary btn-sm px-4">
           <i class="ti ti-plus me-1"></i> Add Task
         </a>
       </div>
@@ -30,8 +30,8 @@
           </div>
           <div class="col-12 col-md-6 mt-2 mt-md-0">
             <!-- Search bar -->
-            <form class="input-group input-group-sm" action="{% url 'task-list' %}">
-              <input type="text" placeholder="Search tasks..." class="form-control" name="q" />
+            <form class="input-group input-group-sm" action="{% url 'note-list' %}">
+              <input type="text" placeholder="Search notes..." class="form-control" name="q" />
               <button class="btn btn-outline-secondary" type="submit">
                 <i class="ti ti-search"></i>
               </button>
@@ -46,28 +46,16 @@
           <table class="table table-hover align-middle mb-0">
             <thead class="table-light">
               <tr>
-                <th scope="col"><i class="ti ti-note me-1"></i> Title</th>
-                <th class="d-none d-md-table-cell"><i class="ti ti-file-description me-1"></i> Description</th>
-                <th scope="col"><i class="ti ti-calendar-time me-1"></i> Deadline</th>
-                <th scope="col"><i class="ti ti-flag me-1"></i> Status</th>
+                <th scope="col"><i class="ti ti-note me-1"></i> Task</th>
+                <th class="d-none d-md-table-cell"><i class="ti ti-file-description me-1"></i> Content</th>
                 <th class="text-center"><i class="ti ti-settings"></i></th>
               </tr>
             </thead>
             <tbody>
               {% for object in object_list %}
               <tr>
-                <td class="fw-semibold">{{ object.title }}</td>
-                <td class="d-none d-md-table-cell">{{ object.description|truncatewords:12 }}</td>
-                <td><span class="badge bg-light text-dark">{{ object.deadline }}</span></td>
-                <td>
-                  {% if object.status == "Completed" %}
-                  <span class="badge bg-success">{{ object.status }}</span>
-                  {% elif object.status == "In Progress" %}
-                  <span class="badge bg-warning text-dark">{{ object.status }}</span>
-                  {% else %}
-                  <span class="badge bg-secondary">{{ object.status }}</span>
-                  {% endif %}
-                </td>
+                <td class="fw-semibold">{{ object.task }}</td>
+                <td class="d-none d-md-table-cell">{{ object.content|truncatewords:12 }}</td>
                 <td class="text-center">
                   <div class="btn-group btn-group-sm" role="group">
                     <a href="{{ object.id }}" class="btn btn-outline-primary">
@@ -83,7 +71,7 @@
               <tr>
                 <td colspan="5" class="text-center py-4">
                   <i class="ti ti-info-circle text-muted fs-4"></i>
-                  <p class="mt-2 mb-0 text-muted">No Tasks Found</p>
+                  <p class="mt-2 mb-0 text-muted">No Notes Found</p>
                 </td>
               </tr>
               {% endfor %}
