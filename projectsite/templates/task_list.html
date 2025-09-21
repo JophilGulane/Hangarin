@@ -28,7 +28,9 @@
               <i class="ti ti-list-check me-1"></i> Task List
             </span>
           </div>
+          
           <div class="col-12 col-md-6 mt-2 mt-md-0">
+            
             <!-- Search bar -->
             <form class="input-group input-group-sm" action="{% url 'task-list' %}">
               <input type="text" placeholder="Search tasks..." class="form-control" name="q" />
@@ -39,6 +41,33 @@
           </div>
         </div>
       </div>
+
+      <!-- Sort Button omg -->
+      <div class="col-md-12 mb-3 ms-4">
+        <form method="get" class="row g-2 align-items-center">
+          <div class="col-auto">
+            <label for="smallSelect" class="col-form-label">Sort by</label>
+          </div>
+          <div class="col-auto">
+            <select class="form-control form-control-sm" id="smallSelect" name="sort_by">
+              <option value="title" {% if request.GET.sort_by == "title" %}selected{% endif %}>
+                Title
+              </option>
+              <option value="deadline" {% if request.GET.sort_by == "deadline" %}selected{% endif %}>
+                Deadline
+              </option>
+              <option value="status" {% if request.GET.sort_by == "status" %}selected{% endif %}>
+                Status
+              </option>
+            </select>
+          </div>
+          <div class="col-auto">
+            <button type="submit" class="btn btn-primary btn-sm btn-rounded">Sort</button>
+          </div>
+        </form>
+      </div>
+      
+
 
       <!-- Table -->
       <div class="card-body p-0">

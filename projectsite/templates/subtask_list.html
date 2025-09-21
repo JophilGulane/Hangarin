@@ -9,7 +9,7 @@
     <div class="row align-items-center mb-4">
       <div class="col-12 col-md-6">
         <h3 class="fw-bold mb-2 mb-md-0">
-          <i class="ti ti-note me-2 text-primary"></i> SubTasks
+          <i class="ti ti-indent-decrease me-2 text-primary"></i> SubTasks
         </h3>
       </div>
       <div class="col-12 col-md-6 text-md-end">
@@ -40,13 +40,38 @@
         </div>
       </div>
 
+      <!-- Sort Button omg -->
+      <div class="col-md-12 mb-3 ms-4">
+        <form method="get" class="row g-2 align-items-center">
+          <div class="col-auto">
+            <label for="smallSelect" class="col-form-label">Sort by</label>
+          </div>
+          <div class="col-auto">
+            <select class="form-control form-control-sm" id="smallSelect" name="sort_by">
+              <option value="parent_task" {% if request.GET.sort_by == "parent_task" %}selected{% endif %}>
+                Parent Task
+              </option>
+              <option value="title" {% if request.GET.sort_by == "title" %}selected{% endif %}>
+                Title
+              </option>
+              <option value="status" {% if request.GET.sort_by == "status" %}selected{% endif %}>
+                Status
+              </option>
+            </select>
+          </div>
+          <div class="col-auto">
+            <button type="submit" class="btn btn-primary btn-sm btn-rounded">Sort</button>
+          </div>
+        </form>
+      </div>
+
       <!-- Table -->
       <div class="card-body p-0">
         <div class="table-responsive">
           <table class="table table-hover align-middle mb-0">
             <thead class="table-light">
               <tr>
-                <th scope="col"><i class="ti ti-note me-1"></i> Parent SubTask</th>
+                <th scope="col"><i class="ti ti-note me-1"></i> Parent Task</th>
                 <th class="d-none d-md-table-cell"><i class="ti ti-file-description me-1"></i> Title</th>
                 <th class="d-none d-md-table-cell"><i class="ti ti-file-description me-1"></i> Status</th>
                 <th class="text-center"><i class="ti ti-settings"></i></th>

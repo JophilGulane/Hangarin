@@ -9,11 +9,14 @@
 {% endif %}
 
 {% for field in form %}
-
 <div class="field item form-group">
   <label>{{ field.label_tag }}</label>
   <div class="form-group">
-    {% render_field field class="form-control" %}
+    {% if field.name == "deadline" %}
+      {% render_field field type="date" class="form-control" %}
+    {% else %}
+      {% render_field field class="form-control" %}
+    {% endif %}
   </div>
 
   {% for error in field.errors %}
@@ -21,6 +24,5 @@
       {{ error }}
     </div>
   {% endfor %}
-
 </div>
 {% endfor %}

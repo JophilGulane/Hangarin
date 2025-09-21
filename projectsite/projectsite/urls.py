@@ -21,11 +21,16 @@ from hangarin.views import TaskCreateView, NoteCreateView, SubTaskCreateView, Ca
 from hangarin.views import TaskUpdateView, NoteUpdateView, SubTaskUpdateView, CategoryUpdateView, PriorityUpdateView
 from hangarin.views import TaskDeleteView, NoteDeleteView, SubTaskDeleteView, CategoryDeleteView, PriorityDeleteView
 
-
 from hangarin import views
+
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path("accounts/", include("allauth.urls")), # allauth routes
+    
+
+    
     path('', HomePageView.as_view(), name='home'),
     
     # Task
