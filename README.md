@@ -1,14 +1,13 @@
 # Hangarin
 
-## Short description
-Hangarin is a comprehensive system designed to track and manage various aspects of university life, including student organizations, events, and individual student progress.
+## Hangarin is a TODO LIST APP SCHOOL PROJECT FOR APPLICATION DEVELOPEMENT 
 
 ## List of features
 - User-friendly interface for easy navigation
 - Robust tracking system for monitoring student involvement
 - Comprehensive recording system for documenting events and activities
 - CRUD (Create, Read, Update, Delete) functionality for managing data
-- Advanced filtering options for customized views and reports
+- Advanced filtering options for customized views
 
 ## Authors
 

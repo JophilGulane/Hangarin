@@ -2,16 +2,28 @@ from django.contrib import admin
 from .models import Priority, Category, Task, Note, SubTask
 # Register your models here.
 
+
+class SubTaskInline(admin.TabularInline):
+    model = SubTask
+    extra = 1
+    fields = ("title", "status")
+    show_change_link = True
+
+class NoteInline(admin.StackedInline):
+    model = Note
+    extra = 1
+    fields = ("content", "created_at")
+    readonly_fields = ("created_at",)
+
 @admin.register(Task)
 class TaskAdmin(admin.ModelAdmin):
     list_display = ("title", "status", "deadline", "priority", "category",)
     list_filter = ("status", "priority",)
     search_fields = ("title", "description",)
-    class SubTaskInline(admin.TabularInline):
-        model = SubTask
-        extra = 1
-        fields = ("title", "status")
-        show_change_link = True
+    inlines = [SubTaskInline, NoteInline]
+
+
+
 
 @admin.register(SubTask)
 class SubTaskAdmin(admin.ModelAdmin):
@@ -23,7 +35,7 @@ class SubTaskAdmin(admin.ModelAdmin):
             task = Task.objects.get(id=obj.parent_task_id)
             return task.title
         except task.DoesNotExist:
-            return None     
+            return None
 @admin.register(Category)
 class CategoryAdmin(admin.ModelAdmin):
     list_display = ("name",)
@@ -37,9 +49,5 @@ class NoteAdmin(admin.ModelAdmin):
     list_display = ("task", "content", "created_at",)
     list_filter = ("created_at",)
     search_fields = ("content",)
-class NoteInline(admin.StackedInline):
-    model = Note
-    extra = 1
-    fields = ("content", "created_at")
-    readonly_fields = ("created_at",)
+
 
