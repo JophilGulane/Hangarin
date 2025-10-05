@@ -47,7 +47,6 @@ class Task(BaseModel):
     def __str__(self):
         return self.title
 
-# rev date: 2025-August rev 01 4
 class Note(BaseModel):
     task = models.ForeignKey(Task, on_delete=models.CASCADE)
     content = models.TextField(max_length=150)
