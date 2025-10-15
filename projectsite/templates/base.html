@@ -1,5 +1,5 @@
 {% load static %}
-
+{% load pwa %}
 <!doctype html>
 <html lang="en">
 
@@ -10,7 +10,7 @@
   <link rel="shortcut icon" type="image/png" href="{% static 'images/logos/logo.svg' %}" />
   <link rel="stylesheet" href="{% static 'css/styles.min.css' %}" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/line-awesome/1.3.0/line-awesome/css/line-awesome.min.css">
-
+  {% progressive_web_app_meta %}
 </head>
 
 <body>
