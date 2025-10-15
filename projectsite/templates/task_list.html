@@ -76,7 +76,7 @@
             <thead class="table-light">
               <tr>
                 <th scope="col"><i class="ti ti-note me-1"></i> Title</th>
-                <th class="d-none d-md-table-cell"><i class="ti ti-file-description me-1"></i> Description</th>
+                <th><i class="ti ti-file-description me-1"></i> Description</th>
                 <th scope="col"><i class="ti ti-calendar-time me-1"></i> Deadline</th>
                 <th scope="col"><i class="ti ti-flag me-1"></i> Status</th>
                 <th class="text-center"><i class="ti ti-settings"></i></th>
@@ -86,7 +86,7 @@
               {% for object in object_list %}
               <tr>
                 <td class="fw-semibold">{{ object.title }}</td>
-                <td class="d-none d-md-table-cell">{{ object.description|truncatewords:12 }}</td>
+                <td>{{ object.description|truncatewords:12 }}</td>
                 <td><span class="badge bg-light text-dark">{{ object.deadline }}</span></td>
                 <td>
                   {% if object.status == "Completed" %}

@@ -72,8 +72,8 @@
             <thead class="table-light">
               <tr>
                 <th scope="col"><i class="ti ti-note me-1"></i> Parent Task</th>
-                <th class="d-none d-md-table-cell"><i class="ti ti-file-description me-1"></i> Title</th>
-                <th class="d-none d-md-table-cell"><i class="ti ti-file-description me-1"></i> Status</th>
+                <th><i class="ti ti-file-description me-1"></i> Title</th>
+                <th><i class="ti ti-file-description me-1"></i> Status</th>
                 <th class="text-center"><i class="ti ti-settings"></i></th>
               </tr>
             </thead>
@@ -81,7 +81,7 @@
               {% for object in object_list %}
               <tr>
                 <td class="fw-semibold">{{ object.parent_task }}</td>
-                <td class="d-none d-md-table-cell">{{ object.title }}</td>
+                <td>{{ object.title }}</td>
                 <td>
                     {% if object.status == "Completed" %}
                     <span class="badge bg-success">{{ object.status }}</span>
